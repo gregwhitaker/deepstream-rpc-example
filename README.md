@@ -3,6 +3,9 @@
 
 An example of using [Deepstream](https://deepstreamhub.com/) for microservices RPC.
 
+The example starts two microservices and registers them with the Deepstream server. The provided client app sends requests to
+each of the services.
+
 ## Prerequisites
 This example requires a running instance of the Deepstream server.
 
