@@ -4,7 +4,11 @@ plugins {
 }
 
 sourceCompatibility = 1.8
+mainClassName = 'demo.deepstream.service.foo.Main'
 
 dependencies {
     compile 'io.deepstream:deepstream.io-client-java:2.0.4'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+
+    runtime 'org.slf4j:slf4j-simple:1.7.25'
 }
