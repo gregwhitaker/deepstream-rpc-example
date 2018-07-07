@@ -1,8 +1,29 @@
 # deepstream-rpc-example
+[![Build Status](https://travis-ci.org/gregwhitaker/deepstream-rpc-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/deepstream-rpc-example)
 
 An example of using [DeepStream](https://deepstreamhub.com/) for microservices RPC.
 
+## Prerequisites
+This example requires a running instance of the Deepstream server.
+
+You can pull the latest Deepstream server from DockerHub using the following command:
+
+    $ docker pull deepstreamio/deepstream.io
+
+Create a container from this image using the following command:
+
+    $ docker create -t -p 6020:6020 -p 8080:8080 \
+       --name deepstream.io \
+       -v $(pwd)/conf:/usr/local/deepstream/conf \
+       -v $(pwd)/var:/usr/local/deepstream/var \
+       deepstreamio/deepstream.io
+
+Start the Deepstream server using the following command:
+
+    $ docker start -ia deepstream.io
+
 ## Running the Example
+You can run the example using the following commands:
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/deepstream-rpc-example/issues).
