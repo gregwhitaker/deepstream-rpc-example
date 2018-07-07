@@ -1,5 +1,7 @@
 # deepstream-rpc-example
 
+An example of using [DeepStream](https://deepstreamhub.com/) for microservices RPC.
+
 ## Running the Example
 
 ## Bugs and Feedback
