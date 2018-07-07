@@ -1,5 +1,10 @@
 # deepstream-rpc-example
 
+## Running the Example
+
+## Bugs and Feedback
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/deepstream-rpc-example/issues).
+
 ## License
 Copyright 2018 Greg Whitaker
 
