@@ -16,6 +16,7 @@
 package demo.deepstream.service.bar;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import io.deepstream.DeepstreamClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,12 +35,12 @@ public class Main {
         // Provide a service named "services.bar"
         client.rpc.provide("services.bar", (name, data, rpcResponse) -> {
             Gson gson = new Gson();
-            System.out.println(data);
-            rpcResponse.ack();
-        });
+            RequestMessage request = gson.fromJson(data.toString(), RequestMessage.class);
 
-        // Block main thread to prevent JVM exit
-        Thread.currentThread().join();
+            LOGGER.info("Received Request: " + request.toString());
+
+            rpcResponse.send(new ResponseMessage(String.format("Hello, %s! - from 'services.bar'", request.getName())));
+        });
     }
 
     /**
@@ -55,6 +56,13 @@ public class Main {
         public String getName() {
             return name;
         }
+
+        @Override
+        public String toString() {
+            return "RequestMessage{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
 
     /**
@@ -69,6 +77,13 @@ public class Main {
 
         public String getMessage() {
             return message;
+        }
+
+        @Override
+        public String toString() {
+            return "ResponseMessage{" +
+                    "message='" + message + '\'' +
+                    '}';
         }
     }
 }

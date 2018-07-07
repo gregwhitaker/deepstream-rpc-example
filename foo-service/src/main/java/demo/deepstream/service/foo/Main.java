@@ -15,6 +15,8 @@
  */
 package demo.deepstream.service.foo;
 
+import com.google.gson.Gson;
+import io.deepstream.DeepstreamClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +26,63 @@ import org.slf4j.LoggerFactory;
 public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
-    public static void main(String... args) {
+    public static void main(String... args) throws Exception {
+        // Connect to Deepstream
+        DeepstreamClient client = new DeepstreamClient("ws://localhost:6020");
+        client.login();
 
+        // Provide a service named "services.bar"
+        client.rpc.provide("services.foo", (name, data, rpcResponse) -> {
+            Gson gson = new Gson();
+            RequestMessage request = gson.fromJson(data.toString(), RequestMessage.class);
+
+            LOGGER.info("Received Request: " + request.toString());
+
+            rpcResponse.send(new ResponseMessage(String.format("Hello, %s! - from 'services.foo'", request.getName())));
+        });
+    }
+
+    /**
+     *
+     */
+    static class RequestMessage {
+        final String name;
+
+        RequestMessage(final String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return "RequestMessage{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
+    }
+
+    /**
+     *
+     */
+    static class ResponseMessage {
+        final String message;
+
+        ResponseMessage(final String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        @Override
+        public String toString() {
+            return "ResponseMessage{" +
+                    "message='" + message + '\'' +
+                    '}';
+        }
     }
 }
