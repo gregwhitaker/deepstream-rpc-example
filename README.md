@@ -37,6 +37,14 @@ You can run the example using the following commands:
 
         $ ./gradlew :client:run
 
+    If successful, you will see the following in the client terminal:
+    
+        > Task :client:run
+        [main] INFO demo.deepstream.client.Main - Sending request to 'services.foo'...
+        [main] INFO demo.deepstream.client.Main - Response from 'services.foo': Hello, World! - from 'services.foo'
+        [main] INFO demo.deepstream.client.Main - Sending request to 'services.bar'...
+        [main] INFO demo.deepstream.client.Main - Response from 'services.bar': Hello, World! - from 'services.bar'
+
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/deepstream-rpc-example/issues).
 
