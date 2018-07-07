@@ -21,7 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * Starts the foo service.
  */
 public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
@@ -31,7 +31,7 @@ public class Main {
         DeepstreamClient client = new DeepstreamClient("ws://localhost:6020");
         client.login();
 
-        // Provide a service named "services.bar"
+        // Register a service named "services.foo"
         client.rpc.provide("services.foo", (name, data, rpcResponse) -> {
             Gson gson = new Gson();
             RequestMessage request = gson.fromJson(data.toString(), RequestMessage.class);
@@ -42,9 +42,6 @@ public class Main {
         });
     }
 
-    /**
-     *
-     */
     static class RequestMessage {
         final String name;
 
@@ -64,9 +61,6 @@ public class Main {
         }
     }
 
-    /**
-     *
-     */
     static class ResponseMessage {
         final String message;
 

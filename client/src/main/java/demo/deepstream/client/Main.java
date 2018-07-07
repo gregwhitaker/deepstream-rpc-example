@@ -22,6 +22,9 @@ import io.deepstream.RpcResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Starts the demo client that sends requests to both the foo and bar services.
+ */
 public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
@@ -66,9 +69,6 @@ public class Main {
         }
     }
 
-    /**
-     *
-     */
     static class RequestMessage {
         final String name;
 
@@ -79,11 +79,15 @@ public class Main {
         public String getName() {
             return name;
         }
+
+        @Override
+        public String toString() {
+            return "RequestMessage{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
 
-    /**
-     *
-     */
     static class ResponseMessage {
         final String message;
 
@@ -93,6 +97,13 @@ public class Main {
 
         public String getMessage() {
             return message;
+        }
+
+        @Override
+        public String toString() {
+            return "ResponseMessage{" +
+                    "message='" + message + '\'' +
+                    '}';
         }
     }
 }

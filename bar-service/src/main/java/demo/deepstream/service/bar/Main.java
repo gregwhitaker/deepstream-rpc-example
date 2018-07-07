@@ -16,13 +16,12 @@
 package demo.deepstream.service.bar;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import io.deepstream.DeepstreamClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Provides the foo-service to Deepstream.
+ * Starts the bar service.
  */
 public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
@@ -32,7 +31,7 @@ public class Main {
         DeepstreamClient client = new DeepstreamClient("ws://localhost:6020");
         client.login();
 
-        // Provide a service named "services.bar"
+        // Register a service named "services.bar"
         client.rpc.provide("services.bar", (name, data, rpcResponse) -> {
             Gson gson = new Gson();
             RequestMessage request = gson.fromJson(data.toString(), RequestMessage.class);
@@ -43,9 +42,6 @@ public class Main {
         });
     }
 
-    /**
-     *
-     */
     static class RequestMessage {
         final String name;
 
@@ -65,9 +61,6 @@ public class Main {
         }
     }
 
-    /**
-     *
-     */
     static class ResponseMessage {
         final String message;
 
