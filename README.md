@@ -27,15 +27,15 @@ You can run the example using the following commands:
 
 1. In a new terminal window start the Foo Service using the following command:
 
-    $ ./gradlew :foo-service:run
+        $ ./gradlew :foo-service:run
     
 2. In a new terminal window start the Bar Service using the following command:
 
-    $ ./gradlew :bar-service:run
+        $ ./gradlew :bar-service:run
     
 3. In a new terminal window start the Client using the following command:
 
-    $ ./gradlew :client:run
+        $ ./gradlew :client:run
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/deepstream-rpc-example/issues).
