@@ -1,7 +1,7 @@
 # deepstream-rpc-example
 [![Build Status](https://travis-ci.org/gregwhitaker/deepstream-rpc-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/deepstream-rpc-example)
 
-An example of using [DeepStream](https://deepstreamhub.com/) for microservices RPC.
+An example of using [Deepstream](https://deepstreamhub.com/) for microservices RPC.
 
 ## Prerequisites
 This example requires a running instance of the Deepstream server.
@@ -24,6 +24,8 @@ Start the Deepstream server using the following command:
 
 ## Running the Example
 You can run the example using the following commands:
+
+1.
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/deepstream-rpc-example/issues).
