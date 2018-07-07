@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = 1.8
+mainClassName = 'demo.deepstream.service.bar.Main'
+
+dependencies {
+    compile 'io.deepstream:deepstream.io-client-java:2.0.4'
+}

@@ -1,0 +1,4 @@
+rootProject.name = 'deepstream-rpc-example'
+include 'foo-service'
+include 'bar-service'
+

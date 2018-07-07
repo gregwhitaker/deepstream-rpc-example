@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile 'io.deepstream:deepstream.io-client-java:2.0.4'
+}
